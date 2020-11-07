@@ -30,12 +30,23 @@ export class recipeResolver {
     };
   }
 
-  @Mutation(() => Recipe)
-  createRecipe(@Arg("data") data: RecipeDataType) {
+  @Mutation(() => ResponseType)
+  createRecipe(@Arg("data") data: RecipeDataType): ResponseType {
     let newRecipe: Recipe = { ...data, id: uuidv4() };
 
     recipeData.push(newRecipe);
-    return newRecipe;
+
+    if (newRecipe) {
+      return {
+        recipe: newRecipe,
+      };
+    }
+
+    return {
+      error: {
+        message: "Could not create your recipe",
+      },
+    };
   }
 
   @Mutation(() => ResponseType)
@@ -54,7 +65,7 @@ export class recipeResolver {
     };
   }
 
-  @Mutation(() => Recipe)
+  @Mutation(() => ResponseType)
   updateRecipe(
     @Arg("id") id: string,
     @Arg("data") data: RecipeDataType
