@@ -1,0 +1,25 @@
+{
+  "name": "typegraphql-basics",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/vinisaveg/typegraphql-basics.git",
+  "author": "Vinicius Savegnago <savegdesigner@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "watch": "tsc -w",
+    "dev": "nodemon build/index.js"
+  },
+  "dependencies": {
+    "apollo-server": "^2.19.0",
+    "class-validator": "^0.12.2",
+    "graphql": "^15.4.0",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1",
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.6",
+    "nodemon": "^2.0.6",
+    "typescript": "^4.0.5"
+  }
+}
