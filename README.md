@@ -6,7 +6,7 @@ The fundamentals for a TypeGraphQL API.
 
 This is the source code of my TypeGraphQL Basics article.
 
-### Running running:
+### Running:
 
 First clone this repo
 
