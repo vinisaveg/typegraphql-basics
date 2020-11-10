@@ -4,7 +4,7 @@ The fundamentals for a TypeGraphQL API.
 
 ### About :question:
 
-This is the source code of my TypeGraphQL Basics article.
+This is the source code of my TypeGraphQL Basics post.
 
 ### Running:
 
@@ -42,8 +42,8 @@ To run the app:
 
 API Running on http://localhost:4000/
 
-### My article
+### My post
 
-...
+https://dev.to/vinisaveg/typegraphql-o-basico-em-uma-api-de-receitas-3ehb
 
 Happy Coding! :grin:
