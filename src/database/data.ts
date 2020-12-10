@@ -1,3 +1,3 @@
-import { Recipe } from "./Entities/Recipe";
+import { Recipe } from "../entities/Recipe";
 
 export const recipeData: Array<Recipe> = [];

@@ -8,7 +8,7 @@ export class Recipe {
   @Field()
   name: string;
 
-  @Field({ nullable: true })
+  @Field()
   description: string;
 
   @Field(() => [String])

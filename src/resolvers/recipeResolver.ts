@@ -1,12 +1,10 @@
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { v4 as uuidv4 } from "uuid";
 
-import { Recipe } from "../Entities/Recipe";
-
-import { recipeData } from "../recipeData";
-
-import { RecipeDataType } from "../Types/RecipeDataType";
-import { ResponseType } from "../Types/ResponseType";
+import { recipeData } from "../database/data";
+import { Recipe } from "../entities/Recipe";
+import { RecipeDataType } from "../types/RecipeDataType";
+import { ResponseType } from "../types/ResponseType";
 
 @Resolver()
 export class recipeResolver {
@@ -20,7 +18,9 @@ export class recipeResolver {
     let recipe = recipeData.find((recipe) => recipe.id === id);
 
     if (recipe) {
-      return { recipe };
+      return {
+        recipe,
+      };
     }
 
     return {
@@ -55,12 +55,14 @@ export class recipeResolver {
 
     if (recipeIndex > -1) {
       recipeData.splice(recipeIndex, 1);
-      return {};
+      return {
+        success: true,
+      };
     }
 
     return {
       error: {
-        message: "Recipe not found",
+        message: "Could not delete your recipe",
       },
     };
   }
@@ -75,12 +77,14 @@ export class recipeResolver {
     if (recipeIndex > -1) {
       recipeData[recipeIndex] = { ...data, id };
 
-      return { recipe: recipeData[recipeIndex] };
+      return {
+        recipe: recipeData[recipeIndex],
+      };
     }
 
     return {
       error: {
-        message: "Recipe not found",
+        message: "Could not update your recipe",
       },
     };
   }

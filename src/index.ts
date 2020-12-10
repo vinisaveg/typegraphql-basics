@@ -1,21 +1,11 @@
 import "reflect-metadata";
 
-import { ApolloServer } from "apollo-server";
-import { buildSchema } from "type-graphql";
+import { bootstrap } from "./server";
 
-import { helloResolver } from "./Resolvers/helloResolver";
-import { recipeResolver } from "./Resolvers/recipeResolver";
-
-async function bootstrap() {
-  const server = new ApolloServer({
-    schema: await buildSchema({
-      resolvers: [helloResolver, recipeResolver],
-    }),
+bootstrap()
+  .then(() => {
+    console.info("Apollo Server running at port: 4000");
+  })
+  .catch((error) => {
+    console.error(error);
   });
-
-  await server.listen(4000, () => {
-    console.log("Apollo Server running at port: 4000");
-  });
-}
-
-bootstrap().catch((error) => console.log(error));

@@ -1,8 +1,8 @@
 import { Field, ObjectType } from "type-graphql";
-import { Recipe } from "../Entities/Recipe";
+import { Recipe } from "../entities/Recipe";
 
 @ObjectType()
-export class ErrorType {
+class ErrorType {
   @Field()
   message: string;
 }
@@ -14,4 +14,7 @@ export class ResponseType {
 
   @Field(() => ErrorType, { nullable: true })
   error?: ErrorType;
+
+  @Field(() => Boolean, { nullable: true })
+  success?: boolean;
 }
